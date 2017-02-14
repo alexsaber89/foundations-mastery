@@ -52,7 +52,7 @@ namespace FoundationsMasteryTests
             myString.Clear();
 
             // How do you ensure your clear function works?
-
+            var deals = myString.GetMyChars();
             Assert.IsNull(myString.GetMyChars());
         }
     }
