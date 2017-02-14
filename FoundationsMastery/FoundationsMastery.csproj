@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomString.cs" />
     <Compile Include="Interfaces\IFactorial.cs" />
     <Compile Include="Interfaces\ICustomString.cs" />
     <Compile Include="Program.cs" />

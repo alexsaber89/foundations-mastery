@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FoundationsMastery;
 
 namespace FoundationsMasteryTests
 {
@@ -9,6 +10,9 @@ namespace FoundationsMasteryTests
         [TestMethod]
         public void EnsureICanCreateAnInstance()
         {
+            CustomString customString = new CustomString();
+
+            Assert.IsNotNull(customString);
         }
 
         [TestMethod]
@@ -17,8 +21,8 @@ namespace FoundationsMasteryTests
             char[] mychars = new char[] { 'a', 'b', 'c' };
             CustomString myString = new CustomString(mychars);
 
-            //int expected_length = ??
-            //int actual_length = ??
+            int expected_length = 3;
+            int actual_length = myString.GetMyChars().Length;
 
             Assert.AreEqual(expected_length, actual_length);
         }
@@ -30,7 +34,14 @@ namespace FoundationsMasteryTests
             CustomString myString = new CustomString(mychars);
 
             // 1. Assert that the Contents property is the correct 'type'
+            var actualType = myString.ConvertMyCharsToString().GetType();
+            Assert.AreEqual(actualType, typeof(string));
+
             // 2. Assert that the returned Contents is the coorect length
+            int expected_length = 3;
+            int actual_length = myString.ConvertMyCharsToString().Length;
+
+            Assert.AreEqual(expected_length, actual_length);
         }
 
         [TestMethod]
@@ -41,6 +52,8 @@ namespace FoundationsMasteryTests
             myString.Clear();
 
             // How do you ensure your clear function works?
+
+            Assert.IsNull(myString.GetMyChars());
         }
     }
 }
